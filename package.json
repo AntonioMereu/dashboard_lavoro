@@ -1,0 +1,28 @@
+{
+  "name": "nodejs-sandbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --watch app.js",
+    "devcss": "tailwindcss -i ./src/input.css -o ./src/output.css -w",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Antonio",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.7",
+    "npm": "^10.8.3",
+    "pg": "^8.13.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.13"
+  }
+}

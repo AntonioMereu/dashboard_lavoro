@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../src/output.css">
+</head>
+
+<body>
+
+</html>
+
+<form action="/add" method="post" enctype="multipart/form-data">
+    <!-- <label for="stato">Stato</label>
+        <input id="stato" type="text" name="stato"/> -->
+
+    <label for="country">Country</label>
+    <input id="country" type="text" name="country" required/>
+
+    <label for="rice_production">Rice Produced</label>
+    <input id="rice_production" type="text" name="rice_production" required />
+
+    <label id="wheat" for="wheat_production">Wheat Produced</label>
+    <input id="wheat_production" type="text" name="wheat_production" required />
+
+    <label for="file">Upload a PDF or DOCX file:</label>
+    <input id="file" type="file" name="file" accept=".pdf,.docx" />
+    <!-- <label for="data">Data</label>
+    <input id="data" type="date" name="data" />
+
+    <label for="condizione">Condizione</label>
+    <input id="condizione" type="text" name="condizione" />
+
+    <label for="richiedente">Richiedente</label>
+    <input id="richiedente" type="text" name="richiedente" />
+
+    <label for="richiesta">Richiesta</label>
+    <textarea id="richiesta" name="richiesta"></textarea> -->
+
+    <!-- <label for="file">Upload a PDF or DOCX file:</label>
+        <input type="file" id="file" name="file" accept=".pdf,.docx"/> -->
+
+    <input type="submit" value="OK" />
+</form>
+<br>
+<table>
+    <tr>
+        <th>Country</th>
+        <th>Rice Produced</th>
+        <th>Wheat Produced</th>
+    </tr>
+
+    <% if(locals.countriesData !=undefined) { %>
+        <% locals.countriesData.forEach((country)=> { %>
+            <tr>
+                <td>
+                    <%= country.country %>
+                </td>
+                <td>
+                    <%= country.rice_prod %>
+                </td>
+                <td>
+                    <%= country.wheat_prod %>
+                </td>
+                <td>
+                    <form action="/delete" method="post" onsubmit="">
+                        <input type="hidden" name="country_id" value="<%= country.id %>" />
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+                <td>
+                    <a href="/download/<%= country.id %>">Download File</a>
+                </td>
+            </tr>
+            <% }); %>
+                <% } %>
+</table>
+
+<%- include ('./footer.ejs') %>
