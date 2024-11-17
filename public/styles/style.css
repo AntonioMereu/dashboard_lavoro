@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
 
 :root {
-  --nav-height: 40px;
+  --nav-height: 100px;
+  --nav-items-dimension: 1.5;
+  --sidebar-width: 100px;
+  --border-radius: 18px;
 }
 
 * {
@@ -13,45 +16,58 @@
 }
 
 body {
+  display: grid;
+  grid-template-columns: minmax(80px, 100px) 1fr;
+  grid-template-rows: var(--nav-height) 1fr 1fr 1fr;
+  grid-template-areas:
+    "logo nav"
+    "sidebar main"
+    "sidebar main"
+    "sidebar main";
+  gap: 25px;
   margin: 0;
-  padding: 2%;
+  padding: 1.5rem;
   height: 100vh;
   box-sizing: border-box;
+  background-color: #e8ebed;
+}
+
+.logo {
+  grid-area: logo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  border-radius: var(--border-radius);
+  background-color: white;
+  height: auto;
+
+  & img {
+    height: calc(var(--sidebar-width) / 1.5);
+    aspect-ratio: 1 / 1;
+  }
 }
 
 nav {
+  grid-area: nav;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: var(--nav-height);
 
-  /* logo + searchbar */
+  /* searchbar */
   & .search-group {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    height: var(--nav-height);
-
-    & .logo {
-      background-image: url(../images/LOGO_HI_C.png);
-      background-size: cover;
-      height: var(--nav-height);
-      aspect-ratio: 1 / 1;
-      border-radius: 100%;
-      background-color: lightblue;
-    }
   
     & .searchbar {
       position: relative;
 
       & input {
-        border-radius: 999px;
-        border: 1px solid black;
-        height: var(--nav-height);
+        border-radius: var(--border-radius);
+        border: none;
+        height: calc(var(--nav-height) / var(--nav-items-dimension));
         width: 300px;
         padding: 0 20px;
-        background-color: #F5F5F5;
-        font-size: 1.2rem;
+        background-color: white;
+        font-size: 1rem;
 
         &:focus {
           outline: 1px solid black;
@@ -63,7 +79,7 @@ nav {
         right: 0;
         top: 50%;
         transform: translateY(-50%);
-        border-radius: 999px;
+        border-radius: var(--border-radius);
         border: none;
         height: var(--nav-height);
         width: var(--nav-height);
@@ -77,16 +93,17 @@ nav {
   & .profile-group {
     display: flex;
     align-items: center;
+    height: calc(var(--nav-height) / 2);
     gap: 2rem;
 
     & .tema {
       appearance: none;
-      width: var(--nav-height);
+      height: calc(var(--nav-height) / var(--nav-items-dimension));
       aspect-ratio: 1 / 1;
       cursor: pointer;
-      border-radius: 999px;
-      border: 1px solid black;
-      background-color: lightgray;
+      border-radius: var(--border-radius);
+      border: none;
+      background-color: white;
 
       &:checked {
         background-color: black;
@@ -94,11 +111,12 @@ nav {
     }
 
     & .notifiche-btn {
-      width: var(--nav-height);
+      height: calc(var(--nav-height) / var(--nav-items-dimension));
       aspect-ratio: 1 / 1;
       cursor: pointer;
-      border-radius: 999px;
-      border: 1px solid black;
+      border-radius: var(--border-radius);
+      border: none;
+      background-color: white;
     }
 
     & .profilo {
@@ -106,11 +124,53 @@ nav {
       place-items: center;
       text-decoration: none;
       color: black;
-      width: var(--nav-height);
+      height: calc(var(--nav-height) / var(--nav-items-dimension));
       aspect-ratio: 1 / 1;
       cursor: pointer;
-      border-radius: 999px;
-      border: 1px solid black;
+      border-radius: var(--border-radius);
+      background-color: white;
+    }
+  }
+}
+
+main {
+  grid-area: main;
+  border-radius: var(--border-radius);
+  background-color: white;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  width: var(--sidebar-width);
+  background-color: white;
+  border-radius: var(--border-radius);
+
+  & .side-btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-grow: 1;
+    gap: 60px;
+    width: calc(var(--sidebar-width) / 2);
+    aspect-ratio: 1 / 1;
+    
+    & a {
+      display: grid;
+      place-items: center;
+      text-decoration: none;
+      color: white;
+      cursor: pointer;
+      background-color: black;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: var(--border-radius);
     }
   }
 }
