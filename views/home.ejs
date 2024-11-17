@@ -1,15 +1,6 @@
 <%- include('partials/header') %>
 
-<nav>
-  <h1>Dashboard</h1>
-  <form action="/search" method="POST">
-    <input type="text" name="searchTerm" placeholder="Cerca..." required />
-    <button type="submit">Cerca</button>
-  </form>
-  <input class="tema" type="checkbox" />
-  <button class="notifiche-btn">Notifiche</button>
-  <div class="profilo">Profilo</div>
-</nav>
+<%- include('partials/navbar') %>
 
 <main>
   <!-- menu laterale -->
@@ -21,6 +12,9 @@
 
   <!-- parte centrale -->
 </main>
+
+
+
 
 <!-- <form action="/add" method="post" enctype="multipart/form-data">
   <label for="country">Country</label>

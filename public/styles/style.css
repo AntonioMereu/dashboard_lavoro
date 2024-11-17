@@ -1,19 +1,116 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
 
 :root {
+  --nav-height: 40px;
 }
 
 * {
   font-family: "Lexend", Arial, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
 }
 
 body {
   margin: 0;
+  padding: 2%;
+  height: 100vh;
+  box-sizing: border-box;
 }
 
-.lexend-font-400 {
-  font-family: "Lexend", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--nav-height);
+
+  /* logo + searchbar */
+  & .search-group {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    height: var(--nav-height);
+
+    & .logo {
+      background-image: url(../images/LOGO_HI_C.png);
+      background-size: cover;
+      height: var(--nav-height);
+      aspect-ratio: 1 / 1;
+      border-radius: 100%;
+      background-color: lightblue;
+    }
+  
+    & .searchbar {
+      position: relative;
+
+      & input {
+        border-radius: 999px;
+        border: 1px solid black;
+        height: var(--nav-height);
+        width: 300px;
+        padding: 0 20px;
+        background-color: #F5F5F5;
+        font-size: 1.2rem;
+
+        &:focus {
+          outline: 1px solid black;
+        }
+      }
+      
+      & button {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 999px;
+        border: none;
+        height: var(--nav-height);
+        width: var(--nav-height);
+        background-color: transparent;
+        cursor: pointer;
+      }
+    }
+  }
+
+  /* checkbox tema + btn notifiche + anchor profilo */
+  & .profile-group {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    & .tema {
+      appearance: none;
+      width: var(--nav-height);
+      aspect-ratio: 1 / 1;
+      cursor: pointer;
+      border-radius: 999px;
+      border: 1px solid black;
+      background-color: lightgray;
+
+      &:checked {
+        background-color: black;
+      }
+    }
+
+    & .notifiche-btn {
+      width: var(--nav-height);
+      aspect-ratio: 1 / 1;
+      cursor: pointer;
+      border-radius: 999px;
+      border: 1px solid black;
+    }
+
+    & .profilo {
+      display: grid;
+      place-items: center;
+      text-decoration: none;
+      color: black;
+      width: var(--nav-height);
+      aspect-ratio: 1 / 1;
+      cursor: pointer;
+      border-radius: 999px;
+      border: 1px solid black;
+    }
+  }
 }
