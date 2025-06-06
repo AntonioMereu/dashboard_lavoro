@@ -5,12 +5,15 @@ const { Pool } = pkg;
 dotenv.config();
 
 const db = new Pool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASS,
-  port: process.env.DB_PORT,
-  // ssl: true,
+  connectionString: process.env.DATABASE_URL,
+  // host: process.env.DB_HOST,
+  // user: process.env.DB_USER,
+  // database: process.env.DB_NAME,
+  // password: process.env.DB_PASS,
+  // port: process.env.DB_PORT,
+  ssl: {
+    rejectUnauthorized: false // necessario per Supabase
+  }
 });
 
 export default db;
