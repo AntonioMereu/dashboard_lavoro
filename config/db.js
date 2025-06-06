@@ -11,9 +11,6 @@ const db = new Pool({
   // database: process.env.DB_NAME,
   // password: process.env.DB_PASS,
   // port: process.env.DB_PORT,
-  ssl: {
-    rejectUnauthorized: false // necessario per Supabase
-  }
 });
 
 export default db;
