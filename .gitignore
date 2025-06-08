@@ -1,3 +1,4 @@
 node_modules
 .env
 .codesandbox
+/certs/prod-ca-2021.crt
