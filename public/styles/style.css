@@ -2,8 +2,8 @@
 
 :root {
   /* Vars */
-  --nav-height: 100px;
-  --nav-items-dimension: 1.5;
+  --nav-height: 50px;
+  --nav-items-dimension: 1;
   --sidebar-width: 60px;
   --main-border-radius: 1rem;
   --btn-border-radius: 12px;
@@ -23,7 +23,7 @@
 body {
   display: grid;
   grid-template-columns: minmax(60px, var(--sidebar-width)) 1fr;
-  grid-template-rows: var(--nav-height) 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr 1fr 1fr;
   grid-template-areas:
     "logo nav"
     "sidebar main"
