@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 export const renderHomePage = async (req, res) => {
     try {
         const countriesData = await getAllCountries();
-        res.render("home.ejs", { countriesData });
+        res.render("home_2.ejs", { countriesData });
     } catch (err) {
         console.error("Error retrieving data:", err);
     }

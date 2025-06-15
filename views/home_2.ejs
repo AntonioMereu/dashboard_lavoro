@@ -1,0 +1,81 @@
+<%- include('partials/header') %>
+
+<%- include('partials/navbar') %>
+
+<!--! menu laterale -->
+<div class="sidebar-btn-container">
+    <div class="navigation-btns">
+        <a href="">
+            <!--* Home -->
+            <img src="icons/home.svg" alt="home">
+        </a>
+        <a href="">
+            <!--* Affidamenti -->
+            <img src="icons/briefcase.svg" alt="affidamenti">
+        </a>
+        <a href="">
+            <!--* Archivio -->
+            <img src="icons/folder.svg" alt="archivio">
+        </a>
+    </div>
+
+    <div class="profile-btns">
+        <label class="theme-btn">
+            <input type="checkbox" />
+        </label>
+        <a class="notifications-btn" href="">
+            <img src="icons/notifications.svg" alt="notifiche">
+        </a>
+        <a class="profile-btn" href="">
+            <img src="icons/user.svg" alt="profilo">
+        </a>
+    </div>
+</div>
+
+<main>
+    <!--! parte centrale -->
+</main>
+
+
+<!-- <form action="/add" method="post" enctype="multipart/form-data">
+  <label for="country">Country</label>
+  <input id="country" type="text" name="country" required />
+
+  <label for="rice_production">Rice Produced</label>
+  <input id="rice_production" type="text" name="rice_production" required />
+
+  <label id="wheat" for="wheat_production">Wheat Produced</label>
+  <input id="wheat_production" type="text" name="wheat_production" required />
+
+  <label for="file">Upload a PDF or DOCX file:</label>
+  <input id="file" type="file" name="file" accept=".pdf,.docx" />
+  <input type="submit" value="OK" />
+</form>
+
+<table>
+  <tr>
+    <th>Country</th>
+    <th>Rice Produced</th>
+    <th>Wheat Produced</th>
+  </tr>
+
+  <% if(locals.countriesData !=undefined) { %> <%
+  locals.countriesData.forEach((country)=> { %>
+  <tr>
+    <td><%= country.country %></td>
+    <td><%= country.rice_prod %></td>
+    <td><%= country.wheat_prod %></td>
+    <td>
+      <form action="/delete" method="post" onsubmit="">
+        <input type="hidden" name="country_id" value="<%= country.id %>" />
+        <button type="submit">Delete</button>
+      </form>
+    </td>
+    <td>
+      <a href="/download/<%= country.id %>">Download File</a>
+    </td>
+  </tr>
+  <% }); %> <% } %>
+</table> -->
+
+<%- include('partials/footer') %>
